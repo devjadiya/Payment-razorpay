@@ -9,7 +9,11 @@ const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+app.use(cors({
+    origin: 'https://blockchain-course.vercel.app/',
+    methods: 'POST',
+  }));
+  
 
 app.post("/order", async (req, res) => {
   try {
