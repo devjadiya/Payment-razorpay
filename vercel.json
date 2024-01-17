@@ -1,15 +1,17 @@
+
 {
     "version": 2,
     "builds": [
-        {
-            "src": "./index.js",
-            "use": "@vercel/node"
-        }
+      {
+        "src": "./api/**/*.js",
+        "use": "@vercel/node"
+      }
     ],
     "routes": [
-    {
-        "src": "/(.*)",
-        "dest": "/"
-    }
-]
-}
+      { "handle": "filesystem" },
+      { "src": "/api/order", "dest": "/api/index.js" },
+      { "src": "/api/order/validate", "dest": "/api/index.js" },
+      { "src": "/(.*)", "dest": "/index.js" }
+    ]
+  }
+  
